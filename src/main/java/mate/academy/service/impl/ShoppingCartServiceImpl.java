@@ -22,7 +22,6 @@ public class ShoppingCartServiceImpl implements ShoppingCartService {
         Ticket ticket = new Ticket();
         ticket.setMovieSession(movieSession);
         ticket.setUser(user);
-        ticketDao.add(ticket);
         ShoppingCart shoppingCart = shoppingCartDao.getByUser(user).orElseThrow(()
                 -> new RuntimeException("Shopping cart not found for user: "
                 + user.getId()));
