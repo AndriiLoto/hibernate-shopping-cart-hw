@@ -25,6 +25,7 @@ public class ShoppingCartServiceImpl implements ShoppingCartService {
         ShoppingCart shoppingCart = shoppingCartDao.getByUser(user).orElseThrow(()
                 -> new RuntimeException("Shopping cart not found for user: "
                 + user.getId()));
+        ticketDao.add(ticket);
         shoppingCart.getTickets().add(ticket);
         shoppingCartDao.update(shoppingCart);
     }
